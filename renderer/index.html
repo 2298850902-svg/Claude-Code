@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日程安排</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 侧边栏 - 月历 -->
+    <aside id="sidebar">
+      <div id="calendar-header">
+        <button id="prev-month">‹</button>
+        <span id="current-month"></span>
+        <button id="next-month">›</button>
+      </div>
+      <div id="calendar-grid">
+        <div class="weekday">一</div>
+        <div class="weekday">二</div>
+        <div class="weekday">三</div>
+        <div class="weekday">四</div>
+        <div class="weekday">五</div>
+        <div class="weekday">六</div>
+        <div class="weekday">日</div>
+      </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main id="content">
+      <div id="selected-date"></div>
+
+      <div id="event-list">
+        <div class="empty-state">请选择日期查看日程</div>
+      </div>
+
+      <button id="btn-add" class="btn-primary add-btn">+ 添加日程</button>
+
+      <!-- 添加/编辑表单 -->
+      <div id="event-form" class="hidden">
+        <h3 id="form-title">添加日程</h3>
+        <input type="text" id="event-title" placeholder="日程标题" maxlength="100">
+        <div class="time-row">
+          <input type="time" id="event-start" value="09:00">
+          <span>至</span>
+          <input type="time" id="event-end" value="10:00">
+        </div>
+        <textarea id="event-desc" placeholder="备注（可选）" rows="3"></textarea>
+        <input type="hidden" id="edit-id" value="">
+        <div class="form-actions">
+          <button id="btn-cancel" class="btn-secondary hidden">取消</button>
+          <button id="btn-save" class="btn-primary">保存</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
